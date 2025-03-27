@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Go to custom prompts page
   newPromptBtn.addEventListener('click', function() {
-    chrome.tabs.create({ url: 'custom-prompts.html' });
+    chrome.tabs.create({ url: chrome.runtime.getURL('/src/pages/custom-prompts/custom-prompts.html') });
   });
   
   // Go to settings page

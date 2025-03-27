@@ -2,7 +2,7 @@
 
 A powerful Chrome extension that brings advanced Large Language Models (LLMs) directly to your browser, allowing you to process selected text from any webpage with AI-powered insights.
 
-![ZAI Companion Logo](logo.png)
+![ZAI Companion Logo](assets/logo.png)
 
 ## Features
 

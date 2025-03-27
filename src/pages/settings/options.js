@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('model-select').value = items.model;
     } else {
       // Default to Claude 3 Sonnet if no model is selected
-      document.getElementById('model-select').value = 'claude-3-sonnet-latest';
+      document.getElementById('model-select').value = 'claude-3-5-sonnet-latest';
     }
   });
 

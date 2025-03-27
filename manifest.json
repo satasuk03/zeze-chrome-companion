@@ -4,19 +4,24 @@
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-      "default_popup": "popup.html",
-      "default_icon": "logo.png"
+      "default_popup": "src/pages/popup/popup.html",
+      "default_icon": "assets/logo.png"
     },
     "permissions": [
       "contextMenus",
       "storage",
-      "activeTab"
+      "activeTab",
+      "tabs"
     ],
     "background": {
-      "service_worker": "background.js"
+      "service_worker": "src/scripts/background.js"
     },
-    "options_page": "options.html",
+    "options_page": "src/pages/settings/options.html",
     "host_permissions": [
       "https://api.anthropic.com/*"
-    ]
+    ],
+    "web_accessible_resources": [{
+      "resources": ["src/pages/custom-prompts/*"],
+      "matches": ["<all_urls>"]
+    }]
 }

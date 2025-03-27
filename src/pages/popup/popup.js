@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Handle custom prompts button click
   document.getElementById('custom-prompt-btn').addEventListener('click', function() {
-    chrome.tabs.create({ url: 'custom-prompts.html' });
+    chrome.tabs.create({ url: chrome.runtime.getURL('/src/pages/custom-prompts/custom-prompts.html') });
   });
 }); 

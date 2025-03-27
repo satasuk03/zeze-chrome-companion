@@ -29,7 +29,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     }, () => {
       // Open a new page to display the result
       chrome.tabs.create({ 
-        url: "result.html"
+        url: chrome.runtime.getURL('/src/pages/result/result.html')
       });
     });
   } else if (info.menuItemId.startsWith("customPrompt_") && info.selectionText) {
@@ -50,7 +50,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         }, () => {
           // Open a new page to display the result
           chrome.tabs.create({ 
-            url: "result.html"
+            url: chrome.runtime.getURL('/src/pages/result/result.html')
           });
         });
       }

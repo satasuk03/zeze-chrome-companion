@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
           activePrompt: selectedPrompt
         }, function() {
           // Redirect to context menu capture page
-          window.location.href = 'result.html';
+          window.location.href = '../result/result.html';
         });
       }
     });
