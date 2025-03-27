@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Companion - Result</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="result.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Companion</h1>
+    <div class="result-container">
+      <div class="input-section">
+        <h2>Selected Text</h2>
+        <div id="selected-text" class="text-box"></div>
+        
+        <div id="prompt-section" class="prompt-section">
+          <h2>Using Prompt: <span id="prompt-name"></span></h2>
+          <div id="prompt-template" class="text-box prompt-template"></div>
+        </div>
+      </div>
+      
+      <div class="output-section">
+        <h2>AI Response</h2>
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+          <p>Processing with AI...</p>
+        </div>
+        <div id="response" class="text-box response"></div>
+        <div id="error" class="error-box"></div>
+      </div>
+      
+      <div class="actions">
+        <button id="copy-btn" disabled>Copy Response</button>
+        <button id="new-prompt-btn">Try Different Prompt</button>
+        <button id="settings-btn">Settings</button>
+      </div>
+    </div>
+  </div>
+  <script src="result.js"></script>
+</body>
+</html> 

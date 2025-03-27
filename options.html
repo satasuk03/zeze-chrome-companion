@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Companion Settings</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Companion Settings</h1>
+    
+    <div class="form-group">
+      <label for="api-key">Anthropic API Key:</label>
+      <input type="password" id="api-key" placeholder="Enter your Anthropic API key">
+      <p class="helper-text">Your API key is stored locally and never shared.</p>
+    </div>
+    
+    <div class="form-group">
+      <label for="model-select">AI Model:</label>
+      <select id="model-select">
+        <option value="claude-3-opus-latest">Claude 3 Opus</option>
+        <option value="claude-3-sonnet-latest">Claude 3 Sonnet</option>
+        <option value="claude-3-haiku-latest">Claude 3 Haiku</option>
+        <option value="claude-3-5-sonnet-latest">Claude 3.5 Sonnet</option>
+        <option value="claude-3-7-sonnet-latest">Claude 3.7 Sonnet</option>
+        <option value="claude-2.1">Claude 2.1</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <button id="save-btn">Save Settings</button>
+      <div id="status" class="status"></div>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html> 

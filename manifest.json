@@ -1,0 +1,22 @@
+{
+    "name": "ZAI Companion",
+    "description": "Process selected text with LLM models. Create custom prompts, analyze content, and get AI-powered insights directly in your browser.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "logo.png"
+    },
+    "permissions": [
+      "contextMenus",
+      "storage",
+      "activeTab"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "options_page": "options.html",
+    "host_permissions": [
+      "https://api.anthropic.com/*"
+    ]
+}

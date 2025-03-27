@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Companion - Custom Prompts</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="custom-prompts.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Custom Prompts</h1>
+    <p class="description">Create and manage custom prompt templates. Use <code>{{data}}</code> as a placeholder for selected text.</p>
+    
+    <div class="prompt-form">
+      <div class="form-group">
+        <label for="prompt-name">Prompt Name:</label>
+        <input type="text" id="prompt-name" placeholder="E.g., Summarize, Explain, Translate...">
+      </div>
+      
+      <div class="form-group">
+        <label for="prompt-template">Prompt Template:</label>
+        <textarea id="prompt-template" placeholder="E.g., Summarize the following text in 3 bullet points: {{data}}"></textarea>
+      </div>
+      
+      <div class="form-actions">
+        <button id="save-prompt-btn">Save Prompt</button>
+        <button id="clear-btn" class="secondary">Clear</button>
+      </div>
+    </div>
+    
+    <div class="saved-prompts">
+      <h2>Your Saved Prompts</h2>
+      <div id="prompts-list" class="prompts-list">
+        <!-- Prompts will be added here dynamically -->
+        <div class="empty-state">No saved prompts yet. Create one above.</div>
+      </div>
+    </div>
+  </div>
+  <script src="custom-prompts.js"></script>
+</body>
+</html> 
