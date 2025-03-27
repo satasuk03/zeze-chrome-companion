@@ -6,18 +6,22 @@ chrome.runtime.onInstalled.addListener(() => {
     title: "Process with AI Companion",
     contexts: ["selection"]
   });
-
-  // Create a "Custom Prompts" submenu
-  chrome.contextMenus.create({
-    id: "customPrompts",
-    title: "Custom Prompts",
-    contexts: ["selection"],
-    parentId: "aiCompanion"
-  });
   
   // Load custom prompts and add them to the context menu
   loadCustomPromptsToMenu();
 });
+
+setTimeout(() => {
+  // Create the main menu item
+  chrome.contextMenus.create({
+    id: "aiCompanion",
+    title: "Process with AI Companion",
+    contexts: ["selection"]
+  });
+  
+  // Load custom prompts and add them to the context menu
+  loadCustomPromptsToMenu();
+}, 10000); // to make sure the custom prompts are always loaded
 
 // Handle context menu click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -63,28 +67,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'updateContextMenus') {
     // Remove all custom prompt menu items
     chrome.contextMenus.removeAll(() => {
-      // Recreate the main menu items
-      chrome.contextMenus.create({
-        id: "aiCompanion",
-        title: "Process with AI Companion",
-        contexts: ["selection"]
-      });
-      
+      // Recreate the main menu item
       chrome.contextMenus.create({
         id: "customPrompts",
         title: "Custom Prompts",
         contexts: ["selection"],
         parentId: "aiCompanion"
       });
-      
+
       // Add the custom prompts to the menu
       const prompts = message.prompts || [];
       prompts.forEach((prompt, index) => {
         chrome.contextMenus.create({
           id: `customPrompt_${index}`,
           title: prompt.name,
-          contexts: ["selection"],
-          parentId: "customPrompts"
+          contexts: ["selection"]
         });
       });
     });
@@ -95,15 +92,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 function loadCustomPromptsToMenu() {
   chrome.storage.sync.get('customPrompts', function(data) {
     const prompts = data.customPrompts || [];
-    
-    // Add each custom prompt to the context menu
-    prompts.forEach((prompt, index) => {
+
+    chrome.contextMenus.removeAll(() => {
+      // Recreate the main menu item
       chrome.contextMenus.create({
-        id: `customPrompt_${index}`,
-        title: prompt.name,
+        id: "customPrompts",
+        title: "Custom Prompts",
         contexts: ["selection"],
-        parentId: "customPrompts"
+        parentId: "aiCompanion"
+      });
+      
+      // Add the custom prompts to the menu
+      prompts.forEach((prompt, index) => {
+        chrome.contextMenus.create({
+          id: `customPrompt_${index}`,
+          title: prompt.name,
+          contexts: ["selection"]
+        });
       });
     });
+  
   });
 } 
+

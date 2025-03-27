@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update existing prompt
         prompts[existingIndex] = { name, template };
       } else {
-        // Add new prompt
-        prompts.push({ name, template });
+        // Add new prompt to the top of the list
+        prompts.unshift({ name, template });
       }
       
       // Save to storage
